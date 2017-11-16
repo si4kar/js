@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    </head>
+<body>
+
+<script>
+
+    function checkLogin(login) {
+        if ((login == 'user') || (login == 'admin')){
+            return true;
+        }
+
+        else if (login == 'guest'){
+            alert('Welcome ' + login);
+        }
+
+        else {
+            alert('User ' + login + ' is not exist');
+        }
+    }
+
+    function checkPassword(password) {
+        if ((password == Number('123')) || (password == Number('777')) || (password == Number('333'))) {
+            alert('Welcome ' + login);
+        }
+        else {
+            alert('Password is incorrect');
+        }
+    }
+
+    login = prompt('Enter your login');
+    if (checkLogin(login)) {
+        password = prompt ('Enter your password');
+        checkPassword(password);
+    }
+
+
+</script>
+
+</body>
+</html>
