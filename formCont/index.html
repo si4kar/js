@@ -2,43 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    </head>
+    <title>Sort</title>
+</head>
 <body>
 
 <script>
 
-    function checkLogin(login) {
-        if ((login == 'user') || (login == 'admin')){
-            return true;
-        }
-
-        else if (login == 'guest'){
-            alert('Welcome ' + login);
-        }
-
-        else {
-            alert('User ' + login + ' is not exist');
-        }
-    }
-
-    function checkPassword(password) {
-        if ((password == Number('123')) || (password == Number('777')) || (password == Number('333'))) {
-            alert('Welcome ' + login);
+    function checkUserNumber() {
+        var userNumbers = prompt('Enter numbers of users', '');
+        if (userNumbers < 3) {
+            alert('Number of users must be more then 2');
+            return checkUserNumber();
         }
         else {
-            alert('Password is incorrect');
+            return userNumbers;
         }
     }
 
-    login = prompt('Enter your login');
-    if (checkLogin(login)) {
-        password = prompt ('Enter your password');
-        checkPassword(password);
+    function getUserInfo() {
+        return prompt('Enter user information (name, surname, email, age, job)', '');
     }
+
+    function addUser(userInfo) {
+        var values = userInfo.split(', ');
+        var user = {};
+
+        user.name = values[0];
+        user.surname = values[1];
+        user.email = values[2];
+        user.age = values[3];
+        user.job = values[4];
+        return user;
+    }
+
+  function sort(users, sorting) {
+        var result = users.sort(function (a, b) {
+            if (a[sorting] > b[sorting]) {
+                return 1;
+            }
+            if (a[sorting] < b[sorting]) {
+                return -1;
+            }
+            return 0;
+        });
+        return result;
+    }
+
+    function print(result) {
+        var element = document.createElement("div");
+        element.id = 'test';
+       for (var i = 0; i < 3; i++) {
+               document.getElementById('test').innerHTML += "<div>" + "<p>" + "Имя: " + result[i].name + "</p>" +
+               "<p>" + "Фамилия: " + result[i].surname + "</p>" +
+               "<p>" + "Почта: " + result[i].email + "</p>" +
+               "<p>" + "Возраст: " + result[i].age + "</p>" +
+               "<p>" + "Профессия: " + result[i].job + "</p>" + "</div>";
+           }
+
+    }
+    
+var userNumbers = checkUserNumber();
+var users = [];
+for (var i = 0; i < userNumbers; i++) {
+    users.push(addUser(getUserInfo()));
+}
+    var sorting = prompt('By which field should I sort', '');
+    var result = sort(users, sorting);
+    print(result,sorting);
+
 
 
 </script>
+
+<div id="test"> </div>
 
 </body>
 </html>
