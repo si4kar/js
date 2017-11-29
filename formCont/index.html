@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<div id="output"> </div>
+
 <script>
 
     function checkUserNumber() {
@@ -14,7 +16,7 @@
             alert('Number of users must be more then 2');
             return checkUserNumber();
         }
-        else {
+    else {
             return userNumbers;
         }
     }
@@ -35,8 +37,8 @@
         return user;
     }
 
-  function sort(users, sorting) {
-        var result = users.sort(function (a, b) {
+    function sort(users, sorting) {
+      var result = users.sort(function (a, b) {
             if (a[sorting] > b[sorting]) {
                 return 1;
             }
@@ -45,36 +47,34 @@
             }
             return 0;
         });
-        return result;
-    }
+      return result;
+  }
 
     function print(result) {
         var element = document.createElement("div");
-        element.id = 'test';
-       for (var i = 0; i < 3; i++) {
-               document.getElementById('test').innerHTML += "<div>" + "<p>" + "Имя: " + result[i].name + "</p>" +
-               "<p>" + "Фамилия: " + result[i].surname + "</p>" +
-               "<p>" + "Почта: " + result[i].email + "</p>" +
-               "<p>" + "Возраст: " + result[i].age + "</p>" +
-               "<p>" + "Профессия: " + result[i].job + "</p>" + "</div>";
-           }
+        element.id = 'output';
+        for (var i = 0; i < 3; i++) {
+           document.getElementById('test').innerHTML += "<p>" + "<b>" + "Name: " + "</b>" + result[i].name +
+               "<b>" + "  Surname: " + "</b>" + result[i].surname +
+               "<b>" + "  Email: " + "</b>" + result[i].email +
+               "<b>" + "  Age: " + "</b>" + result[i].age +
+               "<b>" + "  Job " + "</b>" + result[i].job + "</p>";
+       }
+
+
 
     }
-    
-var userNumbers = checkUserNumber();
-var users = [];
-for (var i = 0; i < userNumbers; i++) {
-    users.push(addUser(getUserInfo()));
-}
+    var userNumbers = checkUserNumber();
+    var users = [];
+    for (var i = 0; i < userNumbers; i++) {
+        users.push(addUser(getUserInfo()));
+    }
     var sorting = prompt('By which field should I sort', '');
     var result = sort(users, sorting);
     print(result,sorting);
 
 
-
 </script>
-
-<div id="test"> </div>
 
 </body>
 </html>
