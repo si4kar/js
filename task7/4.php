@@ -11,17 +11,17 @@
 <form>
 
     <label>Name:</label><br>
-    <input type="text" name="name" id="name"> <br>
+    <input type="text" id="name"> <br>
 
     <label>Surname:</label><br>
-    <input type="text" name="surname" id="surname"><br>
+    <input type="text" id="surname"><br>
 
     <label>Age:</label><br>
-    <input type="text" name="age" id="age"><br><br>
+    <input type="text" id="age"><br><br>
 
 
-    <input type="button" value="Accept" name="accept"  OnClick="go();">
-    <input type="button" value="Print" name="accept"  OnClick="print(users);">
+    <input type="button" id="addUser" value="Accept">
+
 
 </form>
 
@@ -29,28 +29,18 @@
 
     var users =[];
 
-    users.push(addUser());
 
-    function addUser() {
+    document.getElementById("addUser").onclick = function(){
         var user = {};
 
-        user.name = document.getElementById('name');
-        user.surname = document.getElementById('surname');
-        user.age = document.getElementById('age');
-        return user;
-
-    }
-
-    function go() {
-        users.push(addUser());
-    }
-
-    function print(users) {
-
-document.getElementById('output').innerHTML = "<b>" + "Name: " + "</b>" + users[0].name
-    + "<b>" + " Surname: " + "</b>" + users[0].surname
-    + "<b>" + " Age: " + "</b>" + users[0].age;
-    }
+        user.name = document.getElementById("name").value;
+        user.surname = document.getElementById("surname").value;
+        user.age = document.getElementById("age").value;
+        users.push(user);
+        document.getElementById('output').innerHTML = "<b>" + "Name: " + "</b>" + users[0].name
+            + "<b>" + " Surname: " + "</b>" + users[0].surname
+            + "<b>" + " Age: " + "</b>" + users[0].age;
+    };
 
 
 </script>
