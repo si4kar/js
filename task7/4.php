@@ -37,9 +37,9 @@
         user.surname = document.getElementById("surname").value;
         user.age = document.getElementById("age").value;
         users.push(user);
-        document.getElementById('output').innerHTML = "<b>" + "Name: " + "</b>" + users[0].name
-            + "<b>" + " Surname: " + "</b>" + users[0].surname
-            + "<b>" + " Age: " + "</b>" + users[0].age;
+        document.getElementById('output').innerHTML = "<b>" + " ADD:  Name: " + "</b>" + users[users.length-1].name
+            + "<b>" + " Surname: " + "</b>" + users[users.length-1].surname
+            + "<b>" + " Age: " + "</b>" + users[users.length-1].age;
     };
 
 

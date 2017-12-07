@@ -40,7 +40,7 @@
         age: 18
     }];
 
- 
+
     document.getElementById("sortBy").onclick = function() {
         var get = document.getElementsByName('sort');
         for (var i = 0; i < get.length; i++) {
