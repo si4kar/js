@@ -51,10 +51,9 @@
   }
 
     function print(result) {
-        var element = document.createElement("div");
-        element.id = 'output';
+
         for (var i = 0; i < 3; i++) {
-           document.getElementById('test').innerHTML += "<p>" + "<b>" + "Name: " + "</b>" + result[i].name +
+           document.getElementById('output').innerHTML += "<p>" + "<b>" + "Name: " + "</b>" + result[i].name +
                "<b>" + "  Surname: " + "</b>" + result[i].surname +
                "<b>" + "  Email: " + "</b>" + result[i].email +
                "<b>" + "  Age: " + "</b>" + result[i].age +
@@ -71,7 +70,7 @@
     }
     var sorting = prompt('By which field should I sort', '');
     var result = sort(users, sorting);
-    print(result,sorting);
+    print(users);
 
 
 </script>
